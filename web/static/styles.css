@@ -1,0 +1,31 @@
+.grid-cell {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+}
+.grid-cell img {
+    max-width: 100%;
+    height: auto;
+}
+
+.link-button {
+    background: white;
+    color: blue; /* Color del texto para que parezca un enlace */
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline; /* Añade subrayado para parecer un enlace */
+}
+
+.link-button:hover {
+    text-decoration: none; /* Opcional: quita el subrayado al pasar el mouse */
+    color: darkblue; /* Cambia de color al hacer hover, para efecto de enlace */
+}
+
+h1{
+    font-size: 20px;
+}

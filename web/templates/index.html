@@ -1,1 +1,32 @@
-hi
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="container">
+    <h1>a</h1>
+    <h2>a</h2>
+    <div class="row">
+        <div class="col-4 grid-cell">Acciones</div>
+        <div class="col-4 grid-cell">Nombre</div>
+        <div class="col-4 grid-cell">Poder</div>
+    </div>
+    <div class="row">
+        <div class="col-4 grid-cell">Tripulación
+        <ul>
+            <li>Reclutar</li>
+            <li>Asignar</li>
+
+        </ul>
+    </div>
+        <div class="col-4 grid-cell">
+            <img src="https://as1.ftcdn.net/v2/jpg/05/77/82/78/1000_F_577827892_SQT1KsOWwNwhyjurAgRQXvzKEAsvkBvH.jpg" alt="Central Image" width="300" height="300">
+        </div>
+        <div class="col-4 grid-cell">Nave</div>
+    </div>
+    <div class="row">
+        <div class="col-4 grid-cell">Mercado</div>
+        <div class="col-4 grid-cell">Combate</div>
+        <div class="col-4 grid-cell"><a href="ranking">Ranking</a></div>
+    </div>
+</div>
+    
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block contenido %}
+
+<form action="/registro" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        {{ form.non_field_errors }}
+        <label for="id_name" class="form-label">Nombre</label>
+        {{ form.nombre|add_class:"form-control" }}
+        {{ form.nombre.errors }}
+    </div>
+    <div class="mb-3">
+        {{ form.non_field_errors }}
+        <label for="correo" class="form-label">Correo</label>
+        {{ form.correo|add_class:"form-control" }}
+        {{ form.correo.errors }}
+    </div>
+    <div class="mb-3">
+        {{ form.non_field_errors }}
+        <label for="contrasena" class="form-label">Contraseña</label>
+        {{ form.contrasena|add_class:"form-control" }}
+        {{ form.contrasena.errors }}
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+</form>
+
+
+{%endblock%}

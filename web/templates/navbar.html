@@ -1,0 +1,45 @@
+<div class="container-fluid"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success text-white shadow-sm img-zoom">
+        <div class="container">
+            <div class="logo-zoom">
+                <span class="ml-2">Don Sangurucho</span>
+                {% if user.is_authenticated %}
+                    <span class="ml-2"> <i>le da la bienvenida a: <b>{{user.username}}</b></i></span>
+                {%endif%}
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    {% if user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="ordenes">Pedidos</a>
+                    </li>
+                    {%endif%}
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
+                            {% csrf_token %}
+                        </form>
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Cerrar sesión
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/registro">Registro</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a class="btn btn-primary" href="{% url 'login' %}">Iniciar sesión</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

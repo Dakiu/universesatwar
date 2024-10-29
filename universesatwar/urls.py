@@ -17,8 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from web import views
+from django.contrib.auth.views import LoginView,LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
+    path('orden-lista', views.index, name ="ordenlista"),
+    path('ordenes', views.index, name ="ordenes"),
+    path('login',LoginView.as_view(),name='login'),
+    path('logout/',LogoutView.as_view(next_page='/', http_method_names=['get', 'post']),name='logout'),
+    path('registro', views.registro, name='registro'),
+    path('ranking', views.ranking, name='ranking'),
 ]

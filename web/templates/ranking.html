@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block contenido %}
+
+<div class="text-center mt-5 mb-5">
+    <h1>Pedidos</h1>
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Nivel Poder</th>
+                            <th>Fecha</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for jugador in listaJugadores %}
+                        <tr>
+                            <form method="post" action="ordenes">
+                                {% csrf_token %}
+                            <td>{{ jugador.username }}</td>
+                            <td>{{ orden.precio }}</td>
+                            <td><button type="submit" class="btn btn-primary">Atacar</button></td>
+                        </form>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="3">No hay Jugadores.</td>
+                        </tr>
+                        {% endfor %}
+ 
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    
+    </div>
+    
+{% endblock %}
