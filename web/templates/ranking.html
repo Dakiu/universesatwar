@@ -3,7 +3,7 @@
 {% block contenido %}
 
 <div class="text-center mt-5 mb-5">
-    <h1>Pedidos</h1>
+    <h1>Ranking</h1>
     </div>
     <div class="container mt-4">
         <div class="row">
@@ -13,17 +13,17 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Nivel Poder</th>
-                            <th>Fecha</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for jugador in listaJugadores %}
                         <tr>
-                            <form method="post" action="ordenes">
+                            <form method="post" action="batalla">
                                 {% csrf_token %}
-                            <td>{{ jugador.username }}</td>
-                            <td>{{ orden.precio }}</td>
+                            <td>{{ jugador.user.username }}</td>
+                            <td>{{ jugador.poder }}</td>
+                            <td><input type="hidden" id="atacar" name="atacar" value="{{jugador.id}}" />
                             <td><button type="submit" class="btn btn-primary">Atacar</button></td>
                         </form>
                         </tr>

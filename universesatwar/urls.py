@@ -28,4 +28,11 @@ urlpatterns = [
     path('logout/',LogoutView.as_view(next_page='/', http_method_names=['get', 'post']),name='logout'),
     path('registro', views.registro, name='registro'),
     path('ranking', views.ranking, name='ranking'),
+    path('nave', views.nave, name='nave'),
+    path('reclutar', views.reclutar, name='reclutar'),
+    path('reclutarTripulante/', views.reclutarTripulante, name='reclutarTripulante'),
+    path('inicio', views.inicio, name='inicio'),
+    path('batalla', views.batalla, name='batalla'),
+    path('explorar', views.explorar, name='batalla'),
+    path('taller', views.taller, name='taller'),
 ]

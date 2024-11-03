@@ -6,11 +6,19 @@
     <h1 class="playfair">Iniciar Sesión</h1>
     <br>
     <div class="d-flex justify-content-center">
-        <form method="post">
-        {%csrf_token%}
-        {{form.as_p}}
-        <button>Login</button>
-        </form>
+        <div class="container my-5 mb-5">
+            <center>
+            <h1 class="playfair">Iniciar Sesión</h1>
+            <br>
+            <div class="d-flex justify-content-center">
+                <form method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                <button>Login</button>
+                </form>
+            </div>
+            </center>
+            </div>
     </div>
     </center>
     </div>

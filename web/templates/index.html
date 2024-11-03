@@ -1,32 +1,49 @@
 {% extends 'base.html' %}
 {% block contenido %}
-<div class="container">
-    <h1>a</h1>
-    <h2>a</h2>
-    <div class="row">
-        <div class="col-4 grid-cell">Acciones</div>
-        <div class="col-4 grid-cell">Nombre</div>
-        <div class="col-4 grid-cell">Poder</div>
-    </div>
-    <div class="row">
-        <div class="col-4 grid-cell">Tripulación
-        <ul>
-            <li>Reclutar</li>
-            <li>Asignar</li>
 
-        </ul>
+<div class="container mt-5 jumbotron-visible">
+  <div class="row mt-4">
+    <!-- Contenido del jumbotron a la izquierda -->
+
+    <div class="col-md-6">
+      <h1 class="display-5 fw-bold playfair">Universes at War</h1>
+      <p class="fs-4">Juego de navegador.</p>
+      <p class="fs-4">Mejora tu nave, recluta tu tripulación.</p>
+      <p class="fs-4">Explora el espacio o bien ataca a los demás.</p>
+      <p class="fs-6">¡Demuestra tu poder!</p>
     </div>
-        <div class="col-4 grid-cell">
-            <img src="https://as1.ftcdn.net/v2/jpg/05/77/82/78/1000_F_577827892_SQT1KsOWwNwhyjurAgRQXvzKEAsvkBvH.jpg" alt="Central Image" width="300" height="300">
-        </div>
-        <div class="col-4 grid-cell">Nave</div>
-    </div>
-    <div class="row">
-        <div class="col-4 grid-cell">Mercado</div>
-        <div class="col-4 grid-cell">Combate</div>
-        <div class="col-4 grid-cell"><a href="ranking">Ranking</a></div>
-    </div>
-</div>
     
+    <div id="carouselExampleIndicators" class="col-md-6 carousel slide mt-4">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://static.tvtropes.org/pmwiki/pub/images/spacebattle_001_6733.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://static.wikia.nocookie.net/starwars/images/4/4c/ExecutorBattle-SWM.jpg/revision/latest?cb=20150321154627" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://cdn.photoshoptutorials.ws/wp-content/uploads/2020/07/Space-Battle-1200x1000.jpg?strip=all&lossy=1&webp=82&avif=82&ssl=1" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://store-images.s-microsoft.com/image/apps.46557.14329055735915057.ea847a3f-e523-4e0b-bf8f-fdfd18da4a45.b9a2bac1-5ecc-4844-888c-8cd391d4643a?mode=scale&q=90&h=1080&w=1920" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

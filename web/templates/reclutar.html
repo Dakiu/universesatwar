@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block contenido %}
+
+
+
+  <!-- Cuadrícula de tarjetas -->
+  <div class="row mt-4">
+    {% for tripulante in tripulantes %}
+    <div class="col-2 d-flex"> <!-- Cambiado a col-md-3 para 4 tarjetas por fila -->
+      <div class="card mt-2 mb-2">
+        <div class="card-header bg-primary text-white">
+            <center><img src="{{tripulante.imagen}}" alt="" width="100" height="100"></center>
+            <h4 class="card-title mb-2">{{ tripulante.nombre }}</h4>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ tripulante.nombre }}</h5>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Ataque:</strong> {{ tripulante.ataque }}</li>
+                <li class="list-group-item"><strong>Defensa:</strong> {{ tripulante.defensa}}</li>
+                <li class="list-group-item"><strong>Radar:</strong> {{ tripulante.radar}}</li>
+                <li class="list-group-item"><strong>Precio: <span class="text-success"> {{tripulante.precio}}</span></strong></li>
+            </ul>
+            <br>
+            <center>10 Acciones
+            <br><a href="/reclutarTripulante?id={{ tripulante.id}}" class="btn btn-warning">Reclutar</a></center>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

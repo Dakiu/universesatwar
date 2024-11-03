@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block contenido %}
+
+<form action="/explorar" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        ¿Cuántas acciones desea asignar para explorar?
+        <label for="id_name" class="form-label">Nombre</label>
+        <input type="number" id="acciones" name="acciones" min="0" max="100" />
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Explorar</button>
+</form>
+
+{{mensaje|safe}}
+
+
+{% endblock %}

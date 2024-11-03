@@ -26,6 +26,26 @@
     color: darkblue; /* Cambia de color al hacer hover, para efecto de enlace */
 }
 
-h1{
-    font-size: 20px;
+
+
+/*************/
+
+/*************/
+
+.jumbotron-animate {
+  opacity: 0;
+  transform: translateX(100%); /* Desplazado hacia la derecha */
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+.jumbotron-visible {
+opacity: 1;
+transform: translateX(0); /* Volver a la posición original */
+}
+
+.footer-animate {
+animation: fadeInOut 5s ease-in-out infinite;
+}
+
+
+/************/
