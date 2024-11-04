@@ -66,10 +66,12 @@ def EjecutarExplorar(miUsuario, acciones):
     for item in listaTripulantesdeUsuario:
         miNave.radar += item.Tripulacion.radar
 
-
     relatoExploracion=""
     for i in range(int(acciones)):
         probabilidad = random.randint(1, 100)
+
+        miUsuario.acciones -=1
+        miUsuario.save()
     
         # Verifica si el número generado está dentro del rango de radar
         if probabilidad <= miNave.radar:

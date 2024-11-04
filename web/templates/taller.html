@@ -2,69 +2,68 @@
 {% block contenido %}
 
 
+
 <div class="container mt-5">
     <h1>{{miNave.nombre}}</h1>
+    <h3>Oro {{usuario.oro}} |Acciones {{usuario.acciones}}| Recursos {{usuario.recursos}} </h3>
+    <div id="recursos" data-recursos="{{ usuario.recursos }}"></div>
     <!-- Fila de Nave -->
     <div class="row">
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-            <img src="https://cdn.vectorstock.com/i/1000v/74/87/blueprint-of-the-spaceship-vector-6067487.jpg" width="400" height="400" alt="Nave"/>
-        </div>
-        
         <!-- Estadísticas de la Nave a la derecha -->
-        <div class="col-md-6">
+        <div class="col-md-12">
+            Cada acción equivale a 1 punto.
+            <b>Reparar sube el valor Actual.</b><br>
+            <b>Mejorar sube el valor Total.</b><br><br>
             <table class="table">
+                <thead>
+                    <tr>
+                        <th>Atributo</th>
+                        <th>Valor Actual/Valor Máximo</th>
+                        <th>Costo</th>
+                        <th>Reparar</th>
+                        <th>Mejorar</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
                 <tr>
+                    <form method="post" action="taller">
+                        {% csrf_token %}
                     <td>Resistencia:</td>
-                    <td>{{ resistenciaActual}} /{{resistenciaTotal}}</td>
-                    <td>¿Cuántas acciones desea asignar para reparar?
-                        Cada acción recupera 1 punto.
-                    <input type="number" id="acciones" name="acciones" min="0" max="100" /></tr>
+                    <td><strong>{{miNaveUsuario.resistencia}}/{{ miNave.resistencia}} </strong></td>
+                    <td><input type="number" id="acciones" name="accionesResistencia" min="0" max="100" value="0" /></td>
+                    <td>
+                        <input type="hidden" id="reparar" name="repararResistencia" value="{{miNaveUsuario.id}}" />
+                        <button type="submit" name="accion" value="repararResistencia" class="btn btn-success">Reparar (3 Recursos)</button>
+                    </td>
+                    <td>
+                        <input type="hidden" id="mejorar" name="mejorarResistencia" value="{{miNave.id}}" />
+                        <button type="submit" name="accion" value="mejorarResistencia" class="btn btn-primary">Mejorar (10 Oro, 5 Recursos)</button>
+                    </td>
+                    </form>
                 </tr>
                 <tr>
                     <td>Ataque:</td>
-                    <td>{{ miNave.ataque }}</td>
+                    <td>{{ miNave.Ataque}} /<strong>{{miNaveUsuario.ataque}}</strong></td>
                 </tr>
                 <tr>
                     <td>Defensa:</td>
-                    <td>{{ miNave.defensa }}</td>
+                    <td>{{ miNave.defensa}} /<strong>{{miNaveUsuario.defensa}}</strong></td>
                 </tr>
                 <tr>
                     <td>Escudos:</td>
-                    <td>{{ miNave.escudos }}</td>
+                    <td>{{ miNave.escudos}} /<strong>{{miNaveUsuario.escudos}}</strong></td>
                 </tr>
                 <tr>
                     <td>Radar:</td>
-                    <td>{{ miNave.radar }}</td>
+                    <td>{{ miNave.radar}} /<strong>{{miNaveUsuario.radar}}</strong></td>
                 </tr>
                 <tr>
                     <td>Capacidad Tripulantes:</td>
                     <td>{{miNave.capacidadTripulantes}}</td>
                 </tr>
+                </tbody>
             </table>
-        </div>
-    </div>
-
-    <!-- Lista de Tripulantes debajo de la Nave -->
-    <div class="row mt-5">
-        <div class="col-md-12 text-center">
-            <h3>Tripulantes</h3>
-            <form method="post" action="">
-                {% csrf_token %}
-                {% for tripulante in misTripulantes %}
-                <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-                    <img src="{{ tripulante.imagen }}" alt="Imagen" style="width: 100px; height: 100px; margin-right: 15px;">
-                    <div>
-                        <h4>{{ tripulante.nombre }}</h4>
-                        <ul>
-                            <li>Ataque: {{ tripulante.ataque }}</li>
-                            <li>Defensa: {{ tripulante.defensa }}</li>
-                            <!-- <li><input type="checkbox" name="checkTripulantes" value="{{ tripulante.id }}"> Asignar a Nave</li> -->
-                        </ul>
-                    </div>
-                </div>
-                {% endfor %}
-                <!-- <button type="submit" class="btn btn-primary mt-3">Actualizar Asignación</button> -->
-            </form>
         </div>
     </div>
 </div>

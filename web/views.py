@@ -28,7 +28,14 @@ def registro(request):
         miUsuario = Usuario.objects.create(acciones=100, poder=100, user = userCreado)
         miUsuario.save()
         minave = Nave.objects.get(id = 6)
-        naveCreada= Nave_Usuario.objects.create(Usuario = miUsuario, Nave = minave, resistencia =minave.resistencia)
+        naveCreada= Nave_Usuario.objects.create(Usuario = miUsuario, 
+                                                Nave = minave, 
+                                                resistencia =minave.resistencia,
+                                                ataque = minave.ataque,
+                                                defensa = minave.defensa,
+                                                escudos = minave.escudos,
+                                                radar= minave.radar,
+                                                comunicaciones= minave.comunicaciones)
         naveCreada.save()
 
         return redirect('index')
@@ -112,18 +119,30 @@ def explorar(request):
 
 def taller(request):
     miUsuario = request.user.usuario
-    miNave = Nave_Usuario.objects.get(Usuario= miUsuario)
-    resistenciaActual = miNave.resistencia
-    miNave = Nave.objects.get(id = miNave.Nave.id)
-    resistenciaTotal = miNave.resistencia
-                
+    miNaveUsuario = Nave_Usuario.objects.get(Usuario= miUsuario)
+    miNave = Nave.objects.get(id = miNaveUsuario.Nave.id)
+
+    if request.method == "POST":
+        acciones = request.POST['accionesResistencia']
+        
+        if 'accion' in request.POST:
+            if request.POST['accion'] == "repararResistencia":
+                totalRecursosaUsar = acciones*3
+                if miUsuario.recursos >= int(totalRecursosaUsar):
+                    miNaveUsuario.resistencia += int(acciones)
+                    miNaveUsuario.save()
+
+            elif request.POST['accion'] == "mejorarResistencia":
+                totalRecursosaUsar = acciones*5
+                totalOroaUsar = acciones * 10
+                if miUsuario.recursos >= int(totalRecursosaUsar) and miUsuario.oro >= int(totalOroaUsar) :
+                    miNave.resistencia += int(acciones)
+                    miNave.save()
+
     listaTripulantesdeUsuario = Tripulacion_Usuario.objects.filter(Usuario = miUsuario)
-    listaMisTripulantes = list()
     for item in listaTripulantesdeUsuario:
-        listaMisTripulantes.append(item.Tripulacion)
         miNave.ataque += item.Tripulacion.ataque
         miNave.defensa += item.Tripulacion.defensa
         miNave.radar += item.Tripulacion.radar
 
-
-    return render(request, "taller.html",{"miNave":miNave, "resistenciaActual": resistenciaActual, "resistenciaTotal":resistenciaTotal})
+    return render(request, "taller.html",{"miNave":miNave, "miNaveUsuario":miNaveUsuario, "usuario": miUsuario})

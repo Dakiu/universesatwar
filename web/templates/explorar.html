@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 {% load static %} 
 {% block contenido %}
-
+<div class="container mt-5">
 <form action="/explorar" method="post">
     {% csrf_token %}
     <div class="mb-3">
-        ¿Cuántas acciones desea asignar para explorar?
-        <label for="id_name" class="form-label">Nombre</label>
-        <input type="number" id="acciones" name="acciones" min="0" max="100" />
+        ¿Cuántas acciones desea asignar para explorar?<br>
+        <label for="id_name" class="form-label">Acciones</label>
+        <input type="number" id="acciones" name="acciones" min="0" max="100" value="0" />
     </div>
     <br>
     <button type="submit" class="btn btn-primary">Explorar</button>
 </form>
 
 {{mensaje|safe}}
+
+</div>
 
 
 {% endblock %}

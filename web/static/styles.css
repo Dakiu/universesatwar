@@ -49,3 +49,44 @@ animation: fadeInOut 5s ease-in-out infinite;
 
 
 /************/
+.rectanguloCeleste{
+    background-color: #0DCAF0;
+}
+
+/**********/
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posicionamiento fijo */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    overflow: auto; /* Habilita el desplazamiento si es necesario */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Margen superior y centrado horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal (ajustable) */
+    max-width: 600px; /* Ancho máximo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
