@@ -1,18 +1,35 @@
-.grid-cell {
+body {
+    background-color: #343a40 !important;/* Fondo oscuro, similar a bg-dark en Bootstrap */
+    color: white;
+    
+}
+
+.container{
+    background-color: #000000;
+}
+
+.playfair{
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+/**********************/
+/* .grid-cell {
     height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
     background-color: #f8f9fa;
-}
+} */
 .grid-cell img {
     max-width: 100%;
     height: auto;
 }
 
 .link-button {
-    background: white;
+    /* background: white; */
     color: blue; /* Color del texto para que parezca un enlace */
     border: none;
     padding: 0;
@@ -63,7 +80,7 @@ animation: fadeInOut 5s ease-in-out infinite;
     width: 100%; /* Ancho completo */
     height: 100%; /* Altura completa */
     overflow: auto; /* Habilita el desplazamiento si es necesario */
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    /* background-color: rgba(0, 0, 0, 0.5); Fondo semi-transparente */
 }
 
 .modal-content {

@@ -15,15 +15,19 @@
     <title>Universes at War</title>
 </head>
 <body>
-
     {% block 'header'%}
     {% include 'header.html'%}
     {% endblock %}
     {%block 'navbar'%}
     {%include 'navbar.html'%}
     {%endblock%}
+    {%block 'panel'%}
+    {%include 'panel.html'%}
+    {%endblock%}
+    <div class="container">
     {%block contenido%}
     {%endblock%}
+    </div>
     {%block 'footer'%}
     {%include 'footer.html'%}
     {%endblock%}

@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{%block 'panel'%}
+{% endblock %}
 {% block contenido %}
 
 <div class="container mt-5">
@@ -8,10 +10,18 @@
 
       <div class="col-md-6">
         <h1 class="display-5 fw-bold playfair">Universes at War</h1>
-        <p class="fs-4">Juego de navegador.</p>
-        <p class="fs-4">Mejora tu nave, recluta tu tripulación.</p>
-        <p class="fs-4">Explora el espacio o bien ataca a los demás.</p>
-        <p class="fs-6">¡Demuestra tu poder!</p>
+        <p class="fs-5">Juego de navegador.</p>
+        <p class="fs-5"><i>Un universo, mil guerras; solo uno reinará.</i></p>
+        <p class="fs-4"></p>
+        <p class="fs-6"> Recluta a tu tripulación, cada miembro provee distintas habilidades para tu nave. 
+          Algunos son mejores para el ataque, otros para la defensa, existen diversas estadísticas.
+          Cada tripulante tiene un precio en oro que debes pagar para reclutarlo.</p>
+        <p class="fs-6"> Gasta oro, suministros y acciones para mejorar tu nave. O bien repararla tras los combates.
+          No existe el límite que puedes alcanzar, solo debes sabes aprovechar tus límitados recursos.</p>
+        <p class="fs-6"> ¿Cansado de explorar? ¡Puedes atacar a los demás jugadores, y dependiendo del resultado 
+          puedes obtener oro, recursos o bien robarle algunos tripulantes.
+          Después de cada batalla evalúa tus daños y toma las mejores medidas.</p>
+
       </div>
 
       <div id="carouselExampleIndicators" class="col-md-6 carousel slide mt-4">
@@ -59,32 +69,36 @@
       </div>
     </div>
   </div>
-
+  <h2 class="text-center playfair">¿Cómo Jugar?</h2>
   <div class="row mt-5">
     <div class="col-lg-4">
-      <div class="rectanguloCeleste text-center"> Recluta
+      <div class="rectanguloCeleste text-center"><b>Acciones</b>
         <!-- <i class="fa-solid fa-plane"></i> -->
       </div>
-      <p>Recluta a tu tripulación, cada miembro provee distintas habilidades para tu nave. 
-        Algunos son mejores para el ataque, otros para la defensa, existen diversas estadísticas.
-        Cada tripulante tiene un precio en oro que debes pagar para reclutarlo.
+      <p>Cada día recibes 100 acciones, las cuales se pueden usar para distintas actividades:
+        Reclutar, Explorar, Combatir, y más.
+        Además de acciones algunas de estas actividades pueden pedir oro y recursos. 
       </p>
     </div>
     <div class="col-lg-4">
-      <p>Gasta oro, suministros y acciones para mejorar tu nave. O bien repararla tras los combates.
-        No existe el límite que puedes alcanzar, solo debes sabes aprovechar tus límitados recursos.
-      </p>
-      <div class="rectanguloCeleste text-center">Mejora tu nave.
+      <div class="rectanguloCeleste text-center"><b>Oro y Recursos.</b>
         <!-- <i class="fa-solid fa-mountain"></i> -->
       </div>
+      <p>Se usan para pagar reclutar tripulantes o mejorar tu nave.
+        Puedes ganarlo ya sea explorando o atacando a otros jugadores.
+        Si exploras depende del valor de tu radar.
+      </p>
     </div>
     <div class="col-lg-4">
-      <div class="rectanguloCeleste text-center"> Combate.
-        <!-- <i class="fa-solid fa-route"></i> -->
+      <div class="rectanguloCeleste text-center"> <b>Nave.</b>
+        <i class="fa-solid fa-swords"></i>
       </div>
-      <p>¿Cansado de explorar? ¡Puedes atacar a los demás jugadores, y dependiendo del resultado 
-        puedes obtener oro, recursos o bien robarle algunos tripulantes.
-        Después de cada batalla evalúa tus daños y toma las mejores medidas.
+      <p>Al crear tu cuenta recibes una nave con distintas estadísticas.<br>
+        <b>Ataque:</b> El daño que hace en combate.<br>
+        <b>Defensa:</b> La protección para los combates.<br>
+        <b>Resistencia:</b> La vida de tu nave, si llega a 0 se destruye.<br>
+        <b>Capacidad de Tripulantes:</b> Cuantos tripulantes puede llevar.<br>
+        <b>Radar:</b> La probabilidad de encontrar algo al explorar.<br>
       </p>
     </div>
   </div>

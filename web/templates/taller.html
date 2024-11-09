@@ -1,28 +1,25 @@
 {% extends 'base.html' %}
 {% block contenido %}
 
-
-
-<div class="container mt-5">
-    <h1>{{miNave.nombre}}</h1>
-    <h3>Oro {{usuario.oro}} |Acciones {{usuario.acciones}}| Recursos {{usuario.recursos}} </h3>
     <div id="recursos" data-recursos="{{ usuario.recursos }}"></div>
+    <h1 class="text-center">{{miNave.nombre}}</h1>
+    <h5 class="text-center">Capacidad Tripulantes: {{miNave.capacidadTripulantes}}</h5>
     <!-- Fila de Nave -->
     <div class="row">
         <!-- Estadísticas de la Nave a la derecha -->
         <div class="col-md-12">
-            Cada acción equivale a 1 punto.
+            Cada acción equivale a 1 punto.<br>
             <b>Reparar sube el valor Actual.</b><br>
             <b>Mejorar sube el valor Total.</b><br><br>
+            <div class="text-warning text-center"><b><h3>{{mensajeError}}</h3></b></div>
             <table class="table">
                 <thead>
                     <tr>
                         <th>Atributo</th>
                         <th>Valor Actual/Valor Máximo</th>
-                        <th>Costo</th>
+                        <th>Acciones</th>
                         <th>Reparar</th>
                         <th>Mejorar</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,7 +28,8 @@
                         {% csrf_token %}
                     <td>Resistencia:</td>
                     <td><strong>{{miNaveUsuario.resistencia}}/{{ miNave.resistencia}} </strong></td>
-                    <td><input type="number" id="acciones" name="accionesResistencia" min="0" max="100" value="0" /></td>
+                    <td><input type="number" id="acciones" name="acciones" min="0" max="100" value="0" />      
+                    </td>
                     <td>
                         <input type="hidden" id="reparar" name="repararResistencia" value="{{miNaveUsuario.id}}" />
                         <button type="submit" name="accion" value="repararResistencia" class="btn btn-success">Reparar (3 Recursos)</button>
@@ -43,30 +41,73 @@
                     </form>
                 </tr>
                 <tr>
+                    <form method="post" action="taller">
+                        {% csrf_token %}
                     <td>Ataque:</td>
-                    <td>{{ miNave.Ataque}} /<strong>{{miNaveUsuario.ataque}}</strong></td>
+                    <td><strong>{{miNaveUsuario.ataque}}/{{ miNave.ataque}} </strong></td>
+                    <td><input type="number" id="acciones" name="acciones" min="0" max="100" value="0" /></td>
+                    <td>
+                        <input type="hidden" id="reparar" name="repararAtaque" value="{{miNaveUsuario.id}}" />
+                        <button type="submit" name="accion" value="repararAtaque" class="btn btn-success">Reparar (3 Recursos)</button>
+                    </td>
+                    <td>
+                        <input type="hidden" id="mejorar" name="mejorarAtaque" value="{{miNave.id}}" />
+                        <button type="submit" name="accion" value="mejorarAtaque" class="btn btn-primary">Mejorar (10 Oro, 5 Recursos)</button>
+                    </td>
+                    </form>
                 </tr>
                 <tr>
+                    <form method="post" action="taller">
+                        {% csrf_token %}
                     <td>Defensa:</td>
-                    <td>{{ miNave.defensa}} /<strong>{{miNaveUsuario.defensa}}</strong></td>
+                    <td><strong>{{miNaveUsuario.defensa}}/{{ miNave.defensa}} </strong></td>
+                    <td><input type="number" id="acciones" name="acciones" min="0" max="100" value="0" /></td>
+                    <td>
+                        <input type="hidden" id="reparar" name="repararDefensa" value="{{miNaveUsuario.id}}" />
+                        <button type="submit" name="accion" value="repararDefensa" class="btn btn-success">Reparar (3 Recursos)</button>
+                    </td>
+                    <td>
+                        <input type="hidden" id="mejorar" name="mejorarDefensa" value="{{miNave.id}}" />
+                        <button type="submit" name="accion" value="mejorarDefensa" class="btn btn-primary">Mejorar (10 Oro, 5 Recursos)</button>
+                    </td>
+                    </form>
                 </tr>
                 <tr>
+                    <form method="post" action="taller">
+                        {% csrf_token %}
                     <td>Escudos:</td>
-                    <td>{{ miNave.escudos}} /<strong>{{miNaveUsuario.escudos}}</strong></td>
+                    <td><strong>{{miNaveUsuario.escudos}}/{{ miNave.escudos}} </strong></td>
+                    <td><input type="number" id="acciones" name="acciones" min="0" max="100" value="0" /></td>
+                    <td>
+                        <input type="hidden" id="reparar" name="repararEscudos" value="{{miNaveUsuario.id}}" />
+                        <button type="submit" name="accion" value="repararEscudos" class="btn btn-success">Reparar (3 Recursos)</button>
+                    </td>
+                    <td>
+                        <input type="hidden" id="mejorar" name="mejorarEscudos" value="{{miNave.id}}" />
+                        <button type="submit" name="accion" value="mejorarEscudos" class="btn btn-primary">Mejorar (10 Oro, 5 Recursos)</button>
+                    </td>
+                    </form>
                 </tr>
                 <tr>
+                    <form method="post" action="taller">
+                        {% csrf_token %}
                     <td>Radar:</td>
-                    <td>{{ miNave.radar}} /<strong>{{miNaveUsuario.radar}}</strong></td>
-                </tr>
-                <tr>
-                    <td>Capacidad Tripulantes:</td>
-                    <td>{{miNave.capacidadTripulantes}}</td>
+                    <td><strong>{{miNaveUsuario.radar}}/{{ miNave.radar}} </strong></td>
+                    <td><input type="number" id="acciones" name="acciones" min="0" max="100" value="0" /></td>
+                    <td>
+                        <input type="hidden" id="reparar" name="repararRadar" value="{{miNaveUsuario.id}}" />
+                        <button type="submit" name="accion" value="repararRadar" class="btn btn-success">Reparar (3 Recursos)</button>
+                    </td>
+                    <td>
+                        <input type="hidden" id="mejorar" name="mejorarRadar" value="{{miNave.id}}" />
+                        <button type="submit" name="accion" value="mejorarRadar" class="btn btn-primary">Mejorar (10 Oro, 5 Recursos)</button>
+                    </td>
+                    </form>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-</div>
 
 
 

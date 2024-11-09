@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
 {% block contenido %}
 
-<div class="container">
-
-  <h3>Oro {{Usuario.oro}} |Acciones {{Usuario.acciones}}| Recursos {{Usuario.recursos}} </h3>
 
   <div class="row">
 
-  <div class="card" style="width: 18rem;">
+  <div class="card bg-dark text-light m-2" style="width: 16rem;">
     <div class="card-body">
       <h5 class="card-title">Reclutar Tripulantes</h5>
       <p class="card-text">Lista de tripulantes que puedes conseguir para tu nave.</p>
@@ -15,7 +12,7 @@
     </div>
   </div>
 
-  <div class="card" style="width: 18rem;">
+  <div class="card bg-dark text-light m-2" style="width: 16rem;">
     <div class="card-body">
       <h5 class="card-title">Nave </h5>
       <p class="card-text">El estado de tu nave y asignar tripulantes.</p>
@@ -23,21 +20,21 @@
     </div>
   </div>
 
-  <div class="card" style="width: 18rem;">
+  <div class="card bg-dark text-light m-2" style="width: 16rem;">
     <div class="card-body">
       <h5 class="card-title">Ranking </h5>
       <p class="card-text">Ranking de Jugadores.</p>
       <a href="ranking" class="btn btn-primary">Ir a Ranking</a>
     </div>
   </div>
-  <div class="card" style="width: 18rem;">
+  <div class="card bg-dark text-light m-2" style="width: 16rem;">
     <div class="card-body">
       <h5 class="card-title">Explorar </h5>
       <p class="card-text">Explora el espacio.</p>
       <a href="explorar" class="btn btn-primary">Ir a Explorar</a>
     </div>
   </div>
-  <div class="card" style="width: 18rem;">
+  <div class="card bg-dark text-light m-2" style="width: 16rem;">
     <div class="card-body">
       <h5 class="card-title">Taller </h5>
       <p class="card-text">Mejorar y reparar tu Nave.</p>
@@ -46,6 +43,12 @@
   </div>
 </div>
 
-  </div>
+<hr>
+<h2 class="text-center playfair">Bitácora</h2>
+{% for registro in bitacora %}
+{{registro.registroBatalla}}
+{% endfor %}
+
+
 
 {% endblock %}

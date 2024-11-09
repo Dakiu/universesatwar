@@ -1,24 +1,27 @@
 {% extends 'base.html' %}
 {% load custom_filters %}
 {% block contenido %}
+<div class="d-flex justify-content-center align-items-center py-5">
 
-<form action="/registro" method="post">
+<form action="/registro" method="post" class="w-25">
     {% csrf_token %}
-    <div class="mb-3">
+    <div class="col-md-12 mb-3 text-center">
         {{ form.non_field_errors }}
-        <label for="id_name" class="form-label">Nombre</label>
+        <label for="id_name" class="form-label text-center">Nombre</label>
         {{ form.nombre|add_class:"form-control" }}
         {{ form.nombre.errors }}
     </div>
-    <div class="mb-3">
+    <div class="col-md-12 mb-3 text-center">
         {{ form.non_field_errors }}
-        <label for="contrasena" class="form-label">Contraseña</label>
+        <label for="contrasena" class="form-label text-center">Contraseña</label>
         {{ form.contrasena|add_class:"form-control" }}
         {{ form.contrasena.errors }}
     </div>
     <br>
+    <div class="text-center">
     <button type="submit" class="btn btn-primary">Registrarse</button>
+</div>
 </form>
-
+</div>
 
 {%endblock%}
